@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X8x-Ae-Tqa">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="2if-xI-khS">
+            <objects>
+                <viewController id="poQ-ZP-Sm4" customClass="ViewController" customModule="irvTestReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U0h-6U-vBN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xh9-1Y-52K">
+                                <rect key="frame" x="20" y="107" width="374" height="34"/>
+                                <state key="normal" title="FolioReaderKit">
+                                    <color key="titleColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openLibReader:" destination="poQ-ZP-Sm4" eventType="touchUpInside" id="m3q-BV-RyP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFW-0d-xuy">
+                                <rect key="frame" x="20" y="183" width="374" height="34"/>
+                                <state key="normal" title="IrvTestReader">
+                                    <color key="titleColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="yyi-FD-63I" kind="show" id="4Aa-q6-1YL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fFW-0d-xuy" firstAttribute="leading" secondItem="5qv-Iz-iqt" secondAttribute="leading" constant="20" id="7gj-0E-02q"/>
+                            <constraint firstItem="Xh9-1Y-52K" firstAttribute="top" secondItem="5qv-Iz-iqt" secondAttribute="top" constant="19" id="IgD-6n-33S"/>
+                            <constraint firstItem="5qv-Iz-iqt" firstAttribute="trailing" secondItem="Xh9-1Y-52K" secondAttribute="trailing" constant="20" id="JNP-mx-pSU"/>
+                            <constraint firstItem="Xh9-1Y-52K" firstAttribute="leading" secondItem="5qv-Iz-iqt" secondAttribute="leading" constant="20" id="cRs-5a-DvT"/>
+                            <constraint firstItem="fFW-0d-xuy" firstAttribute="top" secondItem="Xh9-1Y-52K" secondAttribute="bottom" constant="42" id="ltQ-Fp-cQX"/>
+                            <constraint firstItem="5qv-Iz-iqt" firstAttribute="trailing" secondItem="fFW-0d-xuy" secondAttribute="trailing" constant="20" id="uk3-TU-FxU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5qv-Iz-iqt"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eAc-ft-js7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Rd-5O-4VD" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752.1739130434785" y="759.375"/>
+        </scene>
+        <!--Irv Main Controller-->
+        <scene sceneID="H3c-7u-OW6">
+            <objects>
+                <viewController id="yyi-FD-63I" customClass="irvMainController" customModule="irvTestReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dKz-rk-Urh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="IgJ-6f-H1g"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ohr-zM-9BC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2502.898550724638" y="758.70535714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kKh-HX-9Ux">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X8x-Ae-Tqa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8hK-AS-Bk9">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="poQ-ZP-Sm4" kind="relationship" relationship="rootViewController" id="cUh-gW-YOF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p1f-1H-z9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="842.02898550724649" y="759.375"/>
+        </scene>
+    </scenes>
+</document>
