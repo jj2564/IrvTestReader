@@ -21,10 +21,10 @@ class ViewController: UIViewController {
 
     @IBAction func openLibReader(_ sender: Any) {
 
-        guard let bookPath = Bundle.main.path(forResource: "The Silver Chair", ofType: "epub") else {
+        guard let bookPath = Bundle.main.path(forResource: "The_Silver_Chair", ofType: "epub") else {
             return
         }
-        let config = FolioReaderConfig(withIdentifier: "sample")
+        let config = FolioReaderConfig(withIdentifier: "book1")
         config.shouldHideNavigationOnTap = false
         let textColor = UIColor(red:0.86, green:0.73, blue:0.70, alpha:1.0)
         let customColor = UIColor(red:0.30, green:0.26, blue:0.20, alpha:1.0)

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7EF8D8EA228949FC009D27FE /* The Silver Chair.epub in Resources */ = {isa = PBXBuildFile; fileRef = 7EF8D8E9228949A2009D27FE /* The Silver Chair.epub */; };
+		7EF8D8EA228949FC009D27FE /* The_Silver_Chair.epub in Resources */ = {isa = PBXBuildFile; fileRef = 7EF8D8E9228949A2009D27FE /* The_Silver_Chair.epub */; };
 		7EF8D8ED22894BED009D27FE /* irvMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8D8EC22894BED009D27FE /* irvMainController.swift */; };
+		7EF8D8EF228A7B86009D27FE /* titleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8D8EE228A7B86009D27FE /* titleCell.swift */; };
+		7EF8D8F1228A82F9009D27FE /* IrvEpubParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8D8F0228A82F9009D27FE /* IrvEpubParser.swift */; };
 		7EFE523122893ABE0015669E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE523022893ABE0015669E /* AppDelegate.swift */; };
 		7EFE523322893ABE0015669E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE523222893ABE0015669E /* ViewController.swift */; };
 		7EFE523622893ABE0015669E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EFE523422893ABE0015669E /* Main.storyboard */; };
@@ -20,8 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7EF8D8E9228949A2009D27FE /* The Silver Chair.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The Silver Chair.epub"; sourceTree = "<group>"; };
+		7EF8D8E9228949A2009D27FE /* The_Silver_Chair.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = The_Silver_Chair.epub; sourceTree = "<group>"; };
 		7EF8D8EC22894BED009D27FE /* irvMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = irvMainController.swift; sourceTree = "<group>"; };
+		7EF8D8EE228A7B86009D27FE /* titleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = titleCell.swift; sourceTree = "<group>"; };
+		7EF8D8F0228A82F9009D27FE /* IrvEpubParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrvEpubParser.swift; sourceTree = "<group>"; };
 		7EFE522D22893ABE0015669E /* irvTestReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = irvTestReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFE523022893ABE0015669E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EFE523222893ABE0015669E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				7EF8D8EC22894BED009D27FE /* irvMainController.swift */,
+				7EF8D8EE228A7B86009D27FE /* titleCell.swift */,
+				7EF8D8F0228A82F9009D27FE /* IrvEpubParser.swift */,
 			);
 			path = irvEpubCore;
 			sourceTree = "<group>";
@@ -94,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				7EFE524322893C750015669E /* sample.epub */,
-				7EF8D8E9228949A2009D27FE /* The Silver Chair.epub */,
+				7EF8D8E9228949A2009D27FE /* The_Silver_Chair.epub */,
 			);
 			path = DataFiles;
 			sourceTree = "<group>";
@@ -178,7 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EF8D8EA228949FC009D27FE /* The Silver Chair.epub in Resources */,
+				7EF8D8EA228949FC009D27FE /* The_Silver_Chair.epub in Resources */,
 				7EFE523B22893AC00015669E /* LaunchScreen.storyboard in Resources */,
 				7EFE523822893AC00015669E /* Assets.xcassets in Resources */,
 				7EFE523622893ABE0015669E /* Main.storyboard in Resources */,
@@ -273,6 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EF8D8F1228A82F9009D27FE /* IrvEpubParser.swift in Sources */,
+				7EF8D8EF228A7B86009D27FE /* titleCell.swift in Sources */,
 				7EFE523322893ABE0015669E /* ViewController.swift in Sources */,
 				7EFE523122893ABE0015669E /* AppDelegate.swift in Sources */,
 				7EF8D8ED22894BED009D27FE /* irvMainController.swift in Sources */,

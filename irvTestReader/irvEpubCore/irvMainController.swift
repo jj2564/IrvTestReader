@@ -10,21 +10,45 @@ import UIKit
 
 class irvMainController: UIViewController {
 
+    @IBOutlet weak var mainTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action:nil)
+        let parser = IrvEpubParser()
+        parser.readEpub(fileName: "The_Silver_Chair")
     }
     
 
-    /*
-    // MARK: - Navigation
+    
+    
+    
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension irvMainController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let index = indexPath.row
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as? titleCell else {
+            return UITableViewCell()
+        }
+        
+        
+        
+        cell.titleLabel.text = "這是第\(index)欄"
+        
+        return cell
+    }
 }
