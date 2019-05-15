@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/FolioReaderKit/Source/FolioReaderContainer.swift"
-            timestampString = "579511272.725402"
+            timestampString = "579584662.747746"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "215"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/FolioReaderKit/Source/FolioReaderContainer.swift"
-            timestampString = "579511272.727855"
+            timestampString = "579584662.748391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "161"
@@ -58,28 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/FolioReaderKit/Source/FolioReaderContainer.swift"
-            timestampString = "579511272.728024"
+            timestampString = "579584662.748574"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "168"
             endingLineNumber = "168"
             landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/FolioReaderKit/Source/EPUBCore/FREpubParser.swift"
-            timestampString = "579494332.192969"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "readEpub(epubPath:removeEpub:unzipPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

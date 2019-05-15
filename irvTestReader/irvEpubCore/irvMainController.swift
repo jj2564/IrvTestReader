@@ -18,7 +18,14 @@ class irvMainController: UIViewController {
         // Do any additional setup after loading the view.
 //        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action:nil)
         let parser = IrvEpubParser()
-        parser.readEpub(fileName: "The_Silver_Chair")
+        do {
+            try parser.readEpub(fileName: "The_Silver_Chair")
+        } catch  {
+            
+        }
+        
+        
+        
     }
     
 

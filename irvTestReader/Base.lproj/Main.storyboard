@@ -127,7 +127,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IgJ-6f-H1g"/>
                     </view>
-                    <navigationItem key="navigationItem" id="i3w-eg-6Jv"/>
+                    <navigationItem key="navigationItem" id="i3w-eg-6Jv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="PSr-eH-Lrp"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mainTableView" destination="Zzx-v3-cc7" id="u6q-fB-mz8"/>
                     </connections>
