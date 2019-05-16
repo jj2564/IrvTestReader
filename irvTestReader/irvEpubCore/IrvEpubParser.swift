@@ -10,63 +10,6 @@ import UIKit
 import AEXML
 import SSZipArchive
 
-//先定義錯誤到時候再增加
-enum EpubError: Error, LocalizedError{
-    case fullPathEmpty
-    case bookNotAvailable
-    
-    public var errorDescription: String? {
-        switch self {
-        case .fullPathEmpty:
-            return "Book corrupted"
-        case .bookNotAvailable:
-            return "Book not found"
-        }
-    }
-}
-
-internal let kApplicationDocumentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-
-public class IrvBook: NSObject {
-    var fullPath: String?
-    var version: Double?
-    
-    var metadata = IrvMetadata()
-    var manifests = IrvManifests()
-}
-
-public class IrvMetadata {
-    var creator = [String]()
-    var publisher = [String]()
-    var title = [String]()
-    var identifier = [String]()
-//    var dates = [String]()
-    
-    var language: String?
-}
-public class IrvManifests: NSObject {
-    var manifests = [String : IrvManifest]()
-    
-    func add(_ manifest: IrvManifest) {
-        self.manifests[manifest.href] = manifest
-    }
-    
-    func findByProperty(_ properties: String) -> IrvManifest? {
-        for manifest in manifests.values {
-            if manifest.properties == properties {
-                return manifest
-            }
-        }
-        return nil
-    }
-}
-
-public class IrvManifest {
-    var id: String!
-    var properties: String?
-    var mediaType: String!
-    var href: String!
-}
 
 class IrvEpubParser: NSObject {
     
@@ -112,7 +55,7 @@ class IrvEpubParser: NSObject {
     /// - Parameter bookBasePath: The base book path
     /// - Throws: `EpubError`
     private func readOpf(filePath bookBasePath: String) throws {
-        var identifier: String?
+//        var identifier: String?
         
         let opfPath = bookBasePath.appendingPathComponent(book.fullPath!)
         let opfData = try Data(contentsOf: URL(fileURLWithPath: opfPath), options: .alwaysMapped)
@@ -120,7 +63,7 @@ class IrvEpubParser: NSObject {
         
 
         if let package = xmlDoc.root.first {
-            identifier = package.attributes["unique-identifier"]
+//            identifier = package.attributes["unique-identifier"]
             
             if let version = package.attributes["version"] {
                 book.version = Double(version)
@@ -139,6 +82,18 @@ class IrvEpubParser: NSObject {
             manifest.mediaType = $0.attributes["media-type"] ?? ""
             
             book.manifests.add(manifest)
+        }
+        
+        if let cover = book.manifests.findByProperty("cover-image"){
+            book.coverImage = cover
+        }
+        
+        if let tocData = book.manifests.findByMediaType("application/x-dtbncx+xml") {
+            print(tocData)
+            book.tocFile = tocData.href
+        }
+        else {
+            throw EpubError.noTocFile
         }
     }
     
@@ -169,6 +124,16 @@ class IrvEpubParser: NSObject {
         }
         
         return metadata
+    }
+    
+    /// Read and parse the Table of Contents.
+    ///
+    /// - Returns: A list of toc references
+    private func findTableOfContents() -> [IrvTocReference] {
+        var tableOfContent = [IrvTocReference]()
+        
+        
+        return tableOfContent
     }
 }
 

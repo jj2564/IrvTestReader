@@ -12,14 +12,17 @@ class irvMainController: UIViewController {
 
     @IBOutlet weak var mainTableView: UITableView!
     
+    var book: IrvBook?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
 //        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action:nil)
         let parser = IrvEpubParser()
+        
         do {
-            try parser.readEpub(fileName: "The_Silver_Chair")
+            book = try parser.readEpub(fileName: "The_Silver_Chair")
         } catch  {
             
         }
