@@ -14,6 +14,7 @@ import SSZipArchive
 class IrvEpubParser: NSObject {
     
     let book = IrvBook()
+//    private var dataBasePath = ""
     
     /// Read Epub file
     /// 只取出封面 標題 章節 和基本內容
@@ -49,6 +50,7 @@ class IrvEpubParser: NSObject {
         print(fullPath)
         //let mediaType = MediaType.by(fileName: fullPath)
         book.fullPath = fullPath
+        book.dataPath = bookBasePath.appendingPathComponent(book.fullPath!.deletingLastPathComponent)
     }
     
     /// 分析 .opf 主要的結構在這
@@ -88,13 +90,16 @@ class IrvEpubParser: NSObject {
             book.coverImage = cover
         }
         
+        //目前只分析NCX一種目錄，所以讀其他書的格式會爆炸
         if let tocData = book.manifests.findByMediaType("application/x-dtbncx+xml") {
-            print(tocData)
             book.tocFile = tocData.href
         }
         else {
             throw EpubError.noTocFile
         }
+        
+        // The book TOC
+        book.tableOfContents = try findTableOfContents()
     }
     
     /// Read and Parse Metadata
@@ -103,7 +108,6 @@ class IrvEpubParser: NSObject {
         let metadata = IrvMetadata()
         
         for tag in tags {
-//            print(tag)
             if tag.name == "dc:title" {
                 metadata.title.append(tag.value ?? "")
                 print("title = \(metadata.title)")
@@ -129,17 +133,33 @@ class IrvEpubParser: NSObject {
     /// Read and parse the Table of Contents.
     ///
     /// - Returns: A list of toc references
-    private func findTableOfContents() -> [IrvTocReference] {
+    private func findTableOfContents() throws -> [IrvTocReference] {
         var tableOfContent = [IrvTocReference]()
+//        var tocItems: [AEXMLElement]?
+        guard let tocFileName = book.tocFile else { return tableOfContent }
+        let tocPath = book.dataPath!.appendingPathComponent(tocFileName)
+        print(tocPath)
         
+        
+        let ncxData = try Data(contentsOf: URL(fileURLWithPath: tocPath), options: .alwaysMapped)
+        let xmlDoc = try AEXMLDocument(xml: ncxData)
+        if let itemsList = xmlDoc.root["navMap"]["navPoint"].all {
+//            tocItems = itemsList
+            
+            ///這裡硬對結構之後再看看優化
+            for item in itemsList{
+                let tocItem = IrvTocReference()
+//                print(item.children.last?.attributes["src"])
+                tocItem.href = item.children.last?.attributes["src"]
+//                print(item.children.first?.children.first?.value)
+                tocItem.title = item.children.first?.children.first?.value
+                tocItem.fullhref = book.dataPath!.appendingPathComponent(tocItem.href)
+                tableOfContent.append(tocItem)
+            }
+            
+        }
         
         return tableOfContent
     }
 }
 
-extension String {
-    
-    func appendingPathComponent(_ str: String) -> String {
-        return (self as NSString).appendingPathComponent(str)
-    }
-}
